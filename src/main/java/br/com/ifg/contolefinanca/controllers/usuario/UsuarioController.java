@@ -1,9 +1,12 @@
 package br.com.ifg.contolefinanca.controllers.usuario;
 
 import br.com.ifg.contolefinanca.models.usuario.dto.UsuarioDTO;
+import br.com.ifg.contolefinanca.models.usuario.entity.Usuario;
 import br.com.ifg.contolefinanca.models.usuario.service.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -25,9 +28,10 @@ public class UsuarioController {
         return ResponseEntity.ok().body("OK");
     }
 
-    @PostMapping("/{id}")
-    public ResponseEntity<String> create(@PathVariable Long id, @Valid @RequestBody UsuarioDTO usuario){
-        return ResponseEntity.ok().body("OK");
+    @PostMapping
+    public ResponseEntity<Usuario> create(@Valid @RequestBody UsuarioDTO usuario){
+        Usuario teste = usuarioService.createUsuario(usuario);
+        return ResponseEntity.status(HttpStatus.CREATED).body(teste);
     }
 
     @PutMapping("/{codigo}/ativo")
