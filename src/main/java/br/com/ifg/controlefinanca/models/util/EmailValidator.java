@@ -1,4 +1,4 @@
-package br.com.ifg.controlefinanca.models.registration.entity;
+package br.com.ifg.controlefinanca.models.util;
 
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;

@@ -1,10 +1,11 @@
 package br.com.ifg.controlefinanca.models.usuario;
 
 import br.com.ifg.controlefinanca.models.receita.entity.Receita;
-import br.com.ifg.controlefinanca.models.usuario.entity.UsuarioRole;
+import br.com.ifg.controlefinanca.models.usuario.enuns.UsuarioRole;
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -17,8 +18,8 @@ import java.util.Set;
 
 @Data
 @Entity
-@AllArgsConstructor
-@Builder
+@NoArgsConstructor
+@EqualsAndHashCode
 @Table(name = "USUARIO")
 public class Usuario implements UserDetails {
     private static final long serialVersionUID = 1L;
@@ -30,24 +31,23 @@ public class Usuario implements UserDetails {
     private String senha;
     private LocalDate nascimento;
     private String estado;
-    private LocalDate dataCriacao;
+    private LocalDate dataCriacao = LocalDate.now();
     @Enumerated(EnumType.STRING)
     private UsuarioRole role;
     private Boolean locked = false;
-    private Boolean enable = false;
+    private Boolean enabled = false;
 
     @OneToMany
     private Set<Receita> receita;
 
 
-    public Usuario(String email, String senha, UsuarioRole role) {
+    public Usuario(String nome, String email, String senha, LocalDate nascimento, String estado,  UsuarioRole role) {
+        this.nome = nome;
         this.email = email;
         this.senha = senha;
+        this.nascimento = nascimento;
+        this.estado = estado;
         this.role = role;
-    }
-
-    public Usuario() {
-
     }
 
     @Override
@@ -83,6 +83,6 @@ public class Usuario implements UserDetails {
 
     @Override
     public boolean isEnabled() {
-        return enable;
+        return enabled;
     }
 }

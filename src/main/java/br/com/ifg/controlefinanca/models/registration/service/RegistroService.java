@@ -1,11 +1,11 @@
 package br.com.ifg.controlefinanca.models.registration.service;
 
 import br.com.ifg.controlefinanca.models.registration.dto.RegistroRequestDTO;
-import br.com.ifg.controlefinanca.models.registration.entity.EmailValidator;
+import br.com.ifg.controlefinanca.models.util.EmailValidator;
 import br.com.ifg.controlefinanca.models.registration.token.entity.ConfirmaToken;
 import br.com.ifg.controlefinanca.models.registration.token.service.ConfirmaTokenService;
 import br.com.ifg.controlefinanca.models.usuario.Usuario;
-import br.com.ifg.controlefinanca.models.usuario.entity.UsuarioRole;
+import br.com.ifg.controlefinanca.models.usuario.enuns.UsuarioRole;
 import br.com.ifg.controlefinanca.models.usuario.service.UsuarioService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -29,13 +29,15 @@ public class RegistroService {
         if(!isValidEmail){
             throw new IllegalStateException("O E-mail não é válido!");
         }
-        return usuarioService.cadastraUsuario(
-                Usuario.builder()
-                        .nome(request.getNome())
-                        .email(request.getEmail())
-                        .senha(request.getSenha())
-                        .role(UsuarioRole.USER)
-                        .build());
+        return usuarioService.signUpUser(
+                new Usuario(
+                        request.getNome(),
+                        request.getEmail(),
+                        request.getSenha(),
+                        request.getNascimento(),
+                        request.getEstado(),
+                        UsuarioRole.USER)
+        );
     }
 
     @Transactional
@@ -45,7 +47,7 @@ public class RegistroService {
                 .orElseThrow(() ->
                         new IllegalStateException("Token não encontrado"));
 
-        if (Objects.isNull(confirmaToken.getConfirmadoEm())) {
+        if (Objects.nonNull(confirmaToken.getConfirmadoEm())) {
             throw new IllegalStateException("O E-mail já foi confimado");
         }
 
@@ -56,7 +58,7 @@ public class RegistroService {
         }
 
         confirmaTokenService.setConfirmedAt(token);
-        usuarioService.ativaUsuario(
+        usuarioService.enableAppUser(
                 confirmaToken.getUsuario().getEmail());
         return "E-mail Confirmado";
     }

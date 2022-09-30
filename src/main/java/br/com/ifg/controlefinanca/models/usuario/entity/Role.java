@@ -1,5 +1,6 @@
 package br.com.ifg.controlefinanca.models.usuario.entity;
 
+import br.com.ifg.controlefinanca.models.usuario.enuns.UsuarioRole;
 import lombok.Data;
 
 import javax.persistence.*;

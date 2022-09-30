@@ -23,10 +23,12 @@ public class UsuarioService implements UserDetailsService {
     @Autowired
     UsuarioRepository usuarioRepository;
     @Autowired
-    private final ConfirmaTokenService tokenService;
+    private ConfirmaTokenService tokenService;
+    @Autowired
+    private BCryptPasswordEncoder bCryptPasswordEncoder;
+    @Autowired
+    private EmailAComfimacaoService emailConfimacaoService;
     private final static String USER_NOT_FOUND_MSG = "Usuario não encontrado email";
-    private final BCryptPasswordEncoder bCryptPasswordEncoder;
-    private final EmailAComfimacaoService emailConfimacaoService;
 
     /** Verifica o se usuario informado no login existe na base de dados */
     @Override
@@ -37,14 +39,14 @@ public class UsuarioService implements UserDetailsService {
                                 String.format(USER_NOT_FOUND_MSG, email)));
     }
 
-    public String cadastraUsuario(Usuario usuario){
+    public String signUpUser(Usuario usuario){
         verficaUsuario(usuario);
         salvaUsuario(usuario);
         enviaEmailConfimacao(usuario, salvaToken(usuario));
         return "Usuário Cadastrado Confirme seu E-mail";
     }
 
-    public int ativaUsuario(String email) {
+    public int enableAppUser(String email) {
         return usuarioRepository.enableAppUser(email);
     }
 
