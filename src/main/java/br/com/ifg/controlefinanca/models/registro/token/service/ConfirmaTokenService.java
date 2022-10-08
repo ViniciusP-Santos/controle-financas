@@ -1,7 +1,7 @@
-package br.com.ifg.controlefinanca.models.registration.token.service;
+package br.com.ifg.controlefinanca.models.registro.token.service;
 
-import br.com.ifg.controlefinanca.models.registration.token.entity.ConfirmaToken;
-import br.com.ifg.controlefinanca.models.registration.token.repository.ConfirmaTokenRepository;
+import br.com.ifg.controlefinanca.models.registro.token.entity.ConfirmaToken;
+import br.com.ifg.controlefinanca.models.registro.token.repository.ConfirmaTokenRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 

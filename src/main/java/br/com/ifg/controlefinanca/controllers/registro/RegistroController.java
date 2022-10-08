@@ -1,7 +1,7 @@
 package br.com.ifg.controlefinanca.controllers.registro;
 
-import br.com.ifg.controlefinanca.models.registration.dto.RegistroRequestDTO;
-import br.com.ifg.controlefinanca.models.registration.service.RegistroService;
+import br.com.ifg.controlefinanca.models.registro.dto.RegistroRequestDTO;
+import br.com.ifg.controlefinanca.models.registro.service.RegistroService;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

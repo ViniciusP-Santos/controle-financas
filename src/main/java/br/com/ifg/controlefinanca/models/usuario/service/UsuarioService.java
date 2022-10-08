@@ -1,8 +1,8 @@
 package br.com.ifg.controlefinanca.models.usuario.service;
 
 import br.com.ifg.controlefinanca.models.email.service.EmailAComfimacaoService;
-import br.com.ifg.controlefinanca.models.registration.token.entity.ConfirmaToken;
-import br.com.ifg.controlefinanca.models.registration.token.service.ConfirmaTokenService;
+import br.com.ifg.controlefinanca.models.registro.token.entity.ConfirmaToken;
+import br.com.ifg.controlefinanca.models.registro.token.service.ConfirmaTokenService;
 import br.com.ifg.controlefinanca.models.usuario.Usuario;
 import br.com.ifg.controlefinanca.models.email.entity.Email;
 import br.com.ifg.controlefinanca.models.usuario.repository.UsuarioRepository;

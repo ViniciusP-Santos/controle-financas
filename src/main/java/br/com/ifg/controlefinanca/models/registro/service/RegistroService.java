@@ -1,9 +1,9 @@
-package br.com.ifg.controlefinanca.models.registration.service;
+package br.com.ifg.controlefinanca.models.registro.service;
 
-import br.com.ifg.controlefinanca.models.registration.dto.RegistroRequestDTO;
+import br.com.ifg.controlefinanca.models.registro.dto.RegistroRequestDTO;
 import br.com.ifg.controlefinanca.models.util.EmailValidator;
-import br.com.ifg.controlefinanca.models.registration.token.entity.ConfirmaToken;
-import br.com.ifg.controlefinanca.models.registration.token.service.ConfirmaTokenService;
+import br.com.ifg.controlefinanca.models.registro.token.entity.ConfirmaToken;
+import br.com.ifg.controlefinanca.models.registro.token.service.ConfirmaTokenService;
 import br.com.ifg.controlefinanca.models.usuario.Usuario;
 import br.com.ifg.controlefinanca.models.usuario.enuns.UsuarioRole;
 import br.com.ifg.controlefinanca.models.usuario.service.UsuarioService;

@@ -1,6 +1,6 @@
-package br.com.ifg.controlefinanca.models.registration.token.repository;
+package br.com.ifg.controlefinanca.models.registro.token.repository;
 
-import br.com.ifg.controlefinanca.models.registration.token.entity.ConfirmaToken;
+import br.com.ifg.controlefinanca.models.registro.token.entity.ConfirmaToken;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;

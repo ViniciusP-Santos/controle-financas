@@ -1,4 +1,4 @@
-package br.com.ifg.controlefinanca.models.registration.token.entity;
+package br.com.ifg.controlefinanca.models.registro.token.entity;
 
 import br.com.ifg.controlefinanca.models.usuario.Usuario;
 import lombok.Getter;

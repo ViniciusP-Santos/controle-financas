@@ -12,8 +12,12 @@ import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
+/**
+ * @TAG DTO01
+ * Data Transfer Object - Design Pattern
+ * @Author Carlos Alexandre Fernandes Batista
+ * */
 @Data
-@Builder
 public class ReceitaDTO implements Serializable {
     private static final long serialVersionUID = 1L;
     @NotBlank
