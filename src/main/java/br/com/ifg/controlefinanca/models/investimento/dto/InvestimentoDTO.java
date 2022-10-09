@@ -26,9 +26,11 @@ public class InvestimentoDTO implements Serializable {
     private String descricao;
     @NotNull
     private LocalDate data;
-    @NonNull
+    @NotNull
     private BigDecimal valor;
-    @NonNull
+    @NotNull
+    private NomeInvestimentos investimento;
+    @NotNull
     private TipoMoeda moeda;
 
 }

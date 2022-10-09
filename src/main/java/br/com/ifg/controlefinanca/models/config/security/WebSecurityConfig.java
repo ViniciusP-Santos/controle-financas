@@ -12,7 +12,13 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.web.AuthenticationEntryPoint;
+import org.springframework.security.web.access.AccessDeniedHandler;
+import org.springframework.security.web.authentication.AuthenticationFailureHandler;
+import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.util.Arrays;
 
 @Configuration
@@ -26,7 +32,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
     @Autowired
     private final BCryptPasswordEncoder bCryptPasswordEncoder;
 
-    private static final String[] PUBLIC_MATCHERS = {"/h2-console/**", "/api/v*/registration/**"};
+    private static final String[] PUBLIC_MATCHERS = {"/h2-console/**", "/api/v*/registration/**", "/**"};
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
@@ -42,7 +48,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
                 .anyRequest()
                 .authenticated()
                 .and()
-                .formLogin();
+                .formLogin().usernameParameter("email").passwordParameter("senha");
     }
 
     @Override
@@ -57,4 +63,5 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
         provider.setUserDetailsService(userDetailsService);
         return provider;
     }
+
 }

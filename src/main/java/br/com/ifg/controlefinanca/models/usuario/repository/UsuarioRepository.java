@@ -1,6 +1,6 @@
 package br.com.ifg.controlefinanca.models.usuario.repository;
 
-import br.com.ifg.controlefinanca.models.usuario.Usuario;
+import br.com.ifg.controlefinanca.models.usuario.entity.Usuario;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;

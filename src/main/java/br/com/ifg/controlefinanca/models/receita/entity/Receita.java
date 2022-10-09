@@ -1,5 +1,6 @@
 package br.com.ifg.controlefinanca.models.receita.entity;
 
+import br.com.ifg.controlefinanca.models.usuario.entity.Usuario;
 import br.com.ifg.controlefinanca.models.util.enuns.TipoMoeda;
 import lombok.Data;
 
@@ -19,4 +20,6 @@ public class Receita {
     private LocalDate data;
     private BigDecimal valor;
     private TipoMoeda moeda;
+    @ManyToOne
+    private Usuario usuario;
 }

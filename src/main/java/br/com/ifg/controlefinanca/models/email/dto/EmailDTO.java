@@ -1,6 +1,6 @@
 package br.com.ifg.controlefinanca.models.email.dto;
 
-import br.com.ifg.controlefinanca.models.usuario.Usuario;
+import br.com.ifg.controlefinanca.models.usuario.entity.Usuario;
 import lombok.Data;
 
 import javax.validation.constraints.Email;

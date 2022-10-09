@@ -6,7 +6,7 @@ Padrões de projeto são soluções típicas para problemas comuns em projeto de
     - [Builder](#builder)
     - [Singleton](#singleton)
 - **[Estruturais(Structural)](#estruturaisstructural)**
-    - [Bridge](#bridge )
+    - [Adpter](#adapter )
 - **[Comportamentais(Behavioral)](#comportamentaisbehavioral)**
 - **[Outros](#outros)**
     - [Data Transfer Object (DTO)](#data-transfer-object-dto)
@@ -35,6 +35,9 @@ O **Builder** permite a você construir objetos complexos passo a passo. O padr�
 
 
 ### Comportamentais(Behavioral)
+#### Adapter
+O **Adapter** é um padrão de projeto estrutural que permite objetos com interfaces incompatíveis colaborarem entre si.
+- [TAG - ADPTO01 Adapter Cotações](src/main/java/br/com/ifg/controlefinanca/models)
 
 ### Outros
 

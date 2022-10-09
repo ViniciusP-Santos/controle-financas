@@ -1,5 +1,6 @@
 package br.com.ifg.controlefinanca.models.investimento.entity;
 
+import br.com.ifg.controlefinanca.models.investimento.enuns.NomeInvestimentos;
 import br.com.ifg.controlefinanca.models.util.enuns.TipoMoeda;
 import lombok.Data;
 
@@ -18,5 +19,6 @@ public class Investimento {
     private String descricao;
     private LocalDate data;
     private BigDecimal valor;
+    private NomeInvestimentos investimento;
     private TipoMoeda moeda;
 }

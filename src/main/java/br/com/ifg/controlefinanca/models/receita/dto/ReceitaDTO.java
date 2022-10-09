@@ -1,5 +1,6 @@
 package br.com.ifg.controlefinanca.models.receita.dto;
 
+import br.com.ifg.controlefinanca.models.usuario.entity.Usuario;
 import br.com.ifg.controlefinanca.models.util.enuns.TipoMoeda;
 import lombok.Builder;
 import lombok.Data;
@@ -20,6 +21,7 @@ import java.time.LocalDate;
 @Data
 public class ReceitaDTO implements Serializable {
     private static final long serialVersionUID = 1L;
+    private Long id;
     @NotBlank
     @Size(max = 80)
     private String nome;
@@ -28,8 +30,9 @@ public class ReceitaDTO implements Serializable {
     private String descricao;
     @NotNull
     private LocalDate data;
-    @NonNull
+    @NotNull
     private BigDecimal valor;
-    @NonNull
+    @NotNull
     private TipoMoeda moeda;
+    private Usuario usuario;
 }

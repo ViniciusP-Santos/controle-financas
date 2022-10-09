@@ -9,6 +9,9 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 
+
+//TODO: Avaliando necessidade de haver EndPoints para Usuário.
+@Deprecated
 @RestController
 @RequestMapping("usuarios")
 public class UsuarioController {

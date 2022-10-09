@@ -6,6 +6,8 @@ import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
+
 @RestController
 @AllArgsConstructor
 @RequestMapping(path = "api/v1/registration")
@@ -14,7 +16,7 @@ public class RegistroController {
     private RegistroService registroService;
 
     @PostMapping
-    public String register(@RequestBody RegistroRequestDTO request){
+    public String register(@Valid @RequestBody RegistroRequestDTO request){
         return registroService.register(request);
     }
     @GetMapping("confirm")

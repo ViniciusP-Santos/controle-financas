@@ -1,4 +1,4 @@
-package br.com.ifg.controlefinanca.models.usuario;
+package br.com.ifg.controlefinanca.models.usuario.entity;
 
 import br.com.ifg.controlefinanca.models.receita.entity.Receita;
 import br.com.ifg.controlefinanca.models.usuario.enuns.UsuarioRole;
@@ -14,6 +14,7 @@ import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.List;
 import java.util.Set;
 
 @Data
@@ -36,9 +37,6 @@ public class Usuario implements UserDetails {
     private UsuarioRole role;
     private Boolean locked = false;
     private Boolean enabled = false;
-
-    @OneToMany
-    private Set<Receita> receita;
 
 
     public Usuario(String nome, String email, String senha, LocalDate nascimento, String estado,  UsuarioRole role) {

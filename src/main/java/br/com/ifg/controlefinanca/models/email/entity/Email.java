@@ -1,7 +1,7 @@
 package br.com.ifg.controlefinanca.models.email.entity;
 
-import br.com.ifg.controlefinanca.models.usuario.Usuario;
 import br.com.ifg.controlefinanca.models.email.enuns.StatusEmail;
+import br.com.ifg.controlefinanca.models.usuario.entity.Usuario;
 import lombok.Builder;
 import lombok.Data;
 

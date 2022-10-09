@@ -1,10 +1,9 @@
 package br.com.ifg.controlefinanca.models.registro.service;
 
 import br.com.ifg.controlefinanca.models.registro.dto.RegistroRequestDTO;
-import br.com.ifg.controlefinanca.models.util.EmailValidator;
 import br.com.ifg.controlefinanca.models.registro.token.entity.ConfirmaToken;
 import br.com.ifg.controlefinanca.models.registro.token.service.ConfirmaTokenService;
-import br.com.ifg.controlefinanca.models.usuario.Usuario;
+import br.com.ifg.controlefinanca.models.usuario.entity.Usuario;
 import br.com.ifg.controlefinanca.models.usuario.enuns.UsuarioRole;
 import br.com.ifg.controlefinanca.models.usuario.service.UsuarioService;
 import lombok.AllArgsConstructor;
@@ -17,18 +16,12 @@ import java.util.Objects;
 @Service
 @AllArgsConstructor
 public class RegistroService {
-    //TODO: Criar Singleton para E-mail Validator
-    private EmailValidator emailValidator;
+
     private UsuarioService usuarioService;
     private final ConfirmaTokenService confirmaTokenService;
 
 
     public String register(RegistroRequestDTO request) {
-        Boolean isValidEmail = emailValidator
-                .test(request.getEmail());
-        if(!isValidEmail){
-            throw new IllegalStateException("O E-mail não é válido!");
-        }
         return usuarioService.signUpUser(
                 new Usuario(
                         request.getNome(),
